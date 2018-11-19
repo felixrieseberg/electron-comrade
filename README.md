@@ -11,8 +11,8 @@ even custom builds.
 electron-comrade --electron path/to/electron --app path/to/app
 ```
 
- * `--electron`: Version of Electron or path to an Electron build or distribution
- * `--app`: Path to an app or a static build of an app (see below)
+ * `-e, --electron`: Version of Electron or path to an Electron build or distribution
+ * `-a, --app`: Path to an app or a static build of an app (see below)
 
 ### Examples
 

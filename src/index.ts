@@ -12,7 +12,3 @@ export async function main() {
   await copyInStaticBuild(args, tempRuntime);
   await runApp(tempRuntime);
 }
-
-main().catch((error) => {
-  console.warn(error);
-});

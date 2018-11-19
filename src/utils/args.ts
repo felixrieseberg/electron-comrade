@@ -3,12 +3,18 @@ import * as fs from 'fs-extra';
 
 import { IArgs } from '../interfaces';
 import { isVersion } from './electron-folder';
+import { logHelp } from './help';
 
 export function parseArguments(argv: Array<string> = process.argv): IArgs {
   const parsed = clp(argv);
+
+  if (parsed.help) {
+    logHelp();
+  }
+
   const result: IArgs = {
-    electron: parsed.electron,
-    app: parsed.app
+    electron: parsed.e || parsed.electron,
+    app: parsed.a || parsed.app
   };
   const errors = [];
 

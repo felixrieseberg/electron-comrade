@@ -1,6 +1,6 @@
 {
   "name": "electron-comrade",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "",
   "main": "dist/index.js",
   "scripts": {
@@ -20,6 +20,9 @@
   },
   "author": "Felix Rieseberg <felix@felixrieseberg.com>",
   "license": "MIT",
+  "bin": {
+    "electron-comrade": "./bin/electron-comrade.js"
+  },
   "bugs": {
     "url": "https://github.com/felixrieseberg/electron-comrade/issues"
   },
