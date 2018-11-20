@@ -3,7 +3,7 @@ import * as path from 'path';
 
 import { RUNTIMES_DIR, RUNTIME_DIR, TEMP_RUNTIMES_DIR } from './config';
 import { IArgs } from './interfaces';
-import { getAppFolder } from './utils/app-folder';
+import { getAppFolder, getResourcesDirFromRoot } from './utils/app-folder';
 import { getElectronFolder } from './utils/electron-folder';
 
 export async function getRuntimeDir() {
@@ -35,14 +35,14 @@ export async function addTempRuntime(options: IArgs) {
 
   console.log(`Creating temporary execution environment...`);
   await fs.copy(sourceDir, tempDir, { filter: copyFilter });
-  await fs.remove(path.join(tempDir, 'resources'));
+  await fs.remove(getResourcesDirFromRoot(tempDir));
 
   return tempDir;
 }
 
 export async function copyInStaticBuild(options: IArgs, tempRuntimeFolder: string) {
   const source = await getAppFolder(options);
-  const target = path.join(tempRuntimeFolder, 'resources');
+  const target = getResourcesDirFromRoot(tempRuntimeFolder);
 
   console.log(`Creating app symlink...`);
   await fs.symlink(source, target, 'dir');

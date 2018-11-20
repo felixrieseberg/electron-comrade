@@ -6,7 +6,7 @@
   "scripts": {
     "test": "npm run lint && npm run unit",
     "unit": "jest",
-    "start": "node dist/index.js",
+    "start": "node bin/electron-comrade.js",
     "build": "tsc -p tsconfig.json",
     "prepare": "npm run build",
     "lint": "tslint -c tslint.json -p tsconfig.json \"src/**/*.ts\""
@@ -26,6 +26,10 @@
   "bugs": {
     "url": "https://github.com/felixrieseberg/electron-comrade/issues"
   },
+  "os": [
+    "win32",
+    "darwin"
+  ],
   "homepage": "https://github.com/felixrieseberg/electron-comrade#readme",
   "devDependencies": {
     "@types/chalk": "^2.2.0",
