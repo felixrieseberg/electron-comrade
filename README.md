@@ -16,7 +16,7 @@ electron-comrade --electron path/to/electron --app path/to/app
 
 ### Examples
 
-Running an installed app with a different version of Electron
+Running an installed app with a different version of Electron:
 
 Windows:
 ```powershell
@@ -26,6 +26,12 @@ electron-comrade --electron 3.0.9 --app ~\AppData\Local\slack\app-3.3.4\
 macOS
 ```sh
 electron-comrade --electron 3.0.9 --app /Applications/Slack.app
+```
+
+Running an installed app with a local build of Electron:
+
+```powershell
+electron-comrade --electron ~\Code\electron\out\Debug --app ~\AppData\Local\slack\app-3.3.4\
 ```
 
 ## Static App Build
