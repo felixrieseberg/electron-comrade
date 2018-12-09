@@ -26,10 +26,6 @@
   "bugs": {
     "url": "https://github.com/felixrieseberg/electron-comrade/issues"
   },
-  "os": [
-    "win32",
-    "darwin"
-  ],
   "homepage": "https://github.com/felixrieseberg/electron-comrade#readme",
   "devDependencies": {
     "@types/chalk": "^2.2.0",

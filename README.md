@@ -19,13 +19,21 @@ electron-comrade --electron path/to/electron --app path/to/app
 Running an installed app with a different version of Electron:
 
 Windows:
+
 ```powershell
 electron-comrade --electron 3.0.9 --app ~\AppData\Local\slack\app-3.3.4\
 ```
 
-macOS
+macOS:
+
 ```sh
 electron-comrade --electron 3.0.9 --app /Applications/Slack.app
+```
+
+Linux:
+
+```sh
+electron-comrade --electron 3.0.9 --app /usr/lib/slack
 ```
 
 Running an installed app with a local build of Electron:
