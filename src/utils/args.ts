@@ -1,9 +1,11 @@
 import * as clp from 'clp';
 import * as fs from 'fs-extra';
+import * as path from 'path';
 
 import { IArgs } from '../interfaces';
 import { isVersion } from './electron-folder';
 import { logHelp } from './help';
+import { getElectronBin } from './electron-bin';
 
 export function parseArguments(argv: Array<string> = process.argv): IArgs {
   const parsed = clp(argv);
@@ -38,6 +40,13 @@ export function parseArguments(argv: Array<string> = process.argv): IArgs {
   if (!isVersion(result.electron) && !fs.existsSync(result.electron)) {
     errors.push(`Specified Electron path does not exist: ${result.electron}.`);
   }
+
+  const electronBin = path.join(result.electron, getElectronBin());
+  const electronBinExists = fs.existsSync(electronBin);
+  if (!isVersion(result.electron) && !electronBinExists) {
+    errors.push(`Could not find Electron binary. Looked for:\n${electronBin}`);
+  }
+
 
   if (!fs.existsSync(result.app)) {
     errors.push(`Specified app path does not exist: ${result.app}.`);
